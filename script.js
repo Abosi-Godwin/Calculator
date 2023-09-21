@@ -11,8 +11,27 @@ let equal = document.querySelector('.equal');
 //select the input button elements 
 const inputValue = document.querySelectorAll(".input");
 
+const aritBtns = document.querySelectorAll(".arit");
+
+
+
+//Arithmetic operators and functions
+aritBtns.forEach(e => {
+  
+  e.addEventListener("click", () => {
+    
+    const lastInput = input.textContent.split("")[input.textContent.length - 1];
+    
+    if(e.value !== "-" && input.textContent.length === 0 || e.value === lastInput) {
+     return;
+    } 
+    else {
+      input.textContent += e.value;
+    }
+  })
+})
+
 inputValue.forEach(e => {
- 
  e.addEventListener("click", () => {
  input.textContent += e.value;
  })
@@ -46,7 +65,9 @@ if (input.textContent.length === 0) {
 //evaluate the arithmetic 
 equal.addEventListener("click", function () {
   let theinput = eval(input.textContent);
-  
+ if (input.textContent.length <= 0) {
+   return;
+ }
   output.textContent = Math.trunc(theinput);
     
 if(output.textContent === "") {
