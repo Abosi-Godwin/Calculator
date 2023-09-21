@@ -14,17 +14,17 @@ const inputValue = document.querySelectorAll(".input");
 inputValue.forEach(e => {
  
  e.addEventListener("click", () => {
- input.innerHTML += e.value;
+ input.textContent += e.value;
  })
 
 });
 
 //clear input field
 clear.addEventListener("click", function () {
-input.innerHTML ="";
-output.innerHTML ="";
+input.textContent ="";
+output.textContent ="";
   
-if(output.innerHTML === "") {
+if(output.textContent === "") {
   input.style.fontSize = '45px';
 }
 else{
@@ -35,21 +35,21 @@ else{
 //delete numbers 
 del.addEventListener("click", () => {
 
-input.innerHTML = (input.innerHTML).substring(0, (input.innerHTML).length-1);
-output.innerHTML = '';
+input.textContent = (input.textContent).substring(0, (input.textContent).length-1);
+output.textContent = '';
 input.style.fontSize = '40px';
-if (input.innerHTML.length === 0) {
-  output.innerHTML = "";
+if (input.textContent.length === 0) {
+  output.textContent = "";
 }
 });
 
 //evaluate the arithmetic 
 equal.addEventListener("click", function () {
-  let theinput = eval(input.innerHTML);
+  let theinput = eval(input.textContent);
   
-  output.innerHTML = Math.trunc(theinput);
+  output.textContent = Math.trunc(theinput);
     
-if(output.innerHTML === "") {
+if(output.textContent === "") {
   input.style.fontSize = '45px';
 }
 else{
